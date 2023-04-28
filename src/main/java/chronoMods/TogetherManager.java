@@ -398,21 +398,7 @@ public class TogetherManager implements PostDeathSubscriber, PostInitializeSubsc
         // Add in all the team relics, but only if the team relics list is clear
         if (teamBlights.size() == 0) {
             MessageInABottle.bottleCards.clear();
-
-            teamBlights.add(new BlueLadder());
-            teamBlights.add(new DimensionalWallet());
-            teamBlights.add(new GhostWriter());
-            teamBlights.add(new DowsingRod());
-            teamBlights.add(new MirrorTouch());
-            teamBlights.add(new PneumaticPost());
-            teamBlights.add(new VaporFunnel());
-            teamBlights.add(new BondsOfFate());
-            teamBlights.add(new Dimensioneel());
-            teamBlights.add(new BrainFreeze());
-            teamBlights.add(new BigHouse());
-            teamBlights.add(new MessageInABottle());
-            teamBlights.add(new BluntScissors());
-            teamBlights.add(new TransfusionBag());
+            teamBlights.addAll(getTeamBlights());
             Collections.shuffle(teamBlights, new Random(AbstractDungeon.relicRng.randomLong()));
         }
     }
@@ -502,6 +488,27 @@ public class TogetherManager implements PostDeathSubscriber, PostInitializeSubsc
         chatScreen.clear();
         MergeCustom.isActive = false;
         teamBlights.clear();
+    }
+
+    public static ArrayList<AbstractBlight> getTeamBlights() {
+        ArrayList<AbstractBlight> blights = new ArrayList<>();
+        
+        blights.add(new BlueLadder());
+        blights.add(new DimensionalWallet());
+        blights.add(new GhostWriter());
+        blights.add(new DowsingRod());
+        blights.add(new MirrorTouch());
+        blights.add(new PneumaticPost());
+        blights.add(new VaporFunnel());
+        blights.add(new BondsOfFate());
+        blights.add(new Dimensioneel());
+        blights.add(new BrainFreeze());
+        blights.add(new BigHouse());
+        blights.add(new MessageInABottle());
+        blights.add(new BluntScissors());
+        blights.add(new TransfusionBag());
+
+        return blights;
     }
 
     public static int getModHash() {
